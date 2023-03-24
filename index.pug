@@ -1,0 +1,24 @@
+head
+    link(rel="stylesheet", href="styles/dice.css")
+    link(href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap", rel="stylesheet")
+
+body 
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/mo-js/1.4.0/mo.umd.js" defer)
+    script(src="script.js" defer)
+
+    h1.title Dice
+
+    .dice-wrapper 
+        .dice-container 
+            .dice 
+                - for (let i = 1; i <= 6; i++) {
+                    div(class=["side", "side-" + i])
+                        - for (let j = 0; j < i; j++) {
+                            .dot
+                        - }
+                - }
+                .side-inner
+                .side-inner
+                .side-inner
+        
+    button.start-anim Roll

@@ -1,0 +1,222 @@
+html {
+  background-color: #222222;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 4rem;
+  color: #eee;
+}
+
+.title::after {
+  content: "x1";
+  font-size: 3rem;
+  padding-left: 0.75rem;
+  color: #bbbbbb;
+}
+
+.dice-wrapper {
+  width: 120px;
+  height: 230px;
+  position: relative;
+}
+
+.dice-container {
+  transform-style: preserve-3d;
+  position: absolute;
+  transform: rotateX(-30deg) rotateY(50deg);
+  top: 100px;
+  left: 20px;
+  transform-origin: 2.5rem 2.5rem 0rem;
+}
+
+.dice {
+  transform-style: preserve-3d;
+  position: absolute;
+  transform-origin: 2.5rem 2.5rem 0rem;
+}
+
+.side {
+  background-color: #eeeeee;
+  box-shadow: inset 0 0 1em 0.25em #d9d9d9;
+  height: 5rem;
+  width: 5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-areas: "one two three" "four five six" "seven eight nine";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+  border-radius: 0.5rem;
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.side-dark {
+  background-color: #d9d9d9;
+}
+
+.dot {
+  background-color: black;
+  border-radius: 50%;
+  height: 0.7499625rem;
+  width: 0.7499625rem;
+}
+
+.side-1 .dot:nth-child(1) {
+  grid-area: five;
+}
+
+.side-2 .dot:nth-child(1) {
+  grid-area: one;
+}
+
+.side-2 .dot:nth-child(2) {
+  grid-area: nine;
+}
+
+.side-3 .dot:nth-child(1) {
+  grid-area: one;
+}
+
+.side-3 .dot:nth-child(2) {
+  grid-area: five;
+}
+
+.side-3 .dot:nth-child(3) {
+  grid-area: nine;
+}
+
+.side-4 .dot:nth-child(1) {
+  grid-area: one;
+}
+
+.side-4 .dot:nth-child(2) {
+  grid-area: three;
+}
+
+.side-4 .dot:nth-child(3) {
+  grid-area: seven;
+}
+
+.side-4 .dot:nth-child(4) {
+  grid-area: nine;
+}
+
+.side-5 .dot:nth-child(1) {
+  grid-area: one;
+}
+
+.side-5 .dot:nth-child(2) {
+  grid-area: three;
+}
+
+.side-5 .dot:nth-child(3) {
+  grid-area: seven;
+}
+
+.side-5 .dot:nth-child(4) {
+  grid-area: nine;
+}
+
+.side-5 .dot:nth-child(5) {
+  grid-area: five;
+}
+
+.side-6 .dot:nth-child(1) {
+  grid-area: one;
+}
+
+.side-6 .dot:nth-child(2) {
+  grid-area: three;
+}
+
+.side-6 .dot:nth-child(3) {
+  grid-area: four;
+}
+
+.side-6 .dot:nth-child(4) {
+  grid-area: six;
+}
+
+.side-6 .dot:nth-child(5) {
+  grid-area: seven;
+}
+
+.side-6 .dot:nth-child(6) {
+  grid-area: nine;
+}
+
+.side-1 {
+  transform: translate3d(2.5rem, 0rem, 0rem) rotateX(0deg) rotateY(90deg);
+}
+
+.side-2 {
+  transform: translate3d(0rem, -2.5rem, 0rem) rotateX(90deg) rotateY(0deg);
+}
+
+.side-3 {
+  transform: translate3d(0rem, 2.5rem, 0rem) rotateX(-90deg) rotateY(0deg);
+}
+
+.side-4 {
+  transform: translate3d(0rem, 0rem, -2.5rem) rotateX(0deg) rotateY(180deg);
+}
+
+.side-5 {
+  transform: translate3d(-2.5rem, 0rem, 0rem) rotateX(0deg) rotateY(-90deg);
+}
+
+.side-6 {
+  transform: translate3d(0rem, 0rem, 2.5rem) rotateX(0deg) rotateY(0deg);
+}
+
+.side-inner {
+  background-color: #d9d9d9;
+  height: 5rem;
+  width: 5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.side-inner:nth-child(7) {
+  transform: rotateX(90deg);
+}
+.side-inner:nth-child(8) {
+  transform: rotateY(90deg);
+}
+
+.start-anim {
+  color: #111;
+  font-size: 1.5rem;
+  font-family: "Bebas Neue", sans-serif;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #eee;
+  padding: 0.25rem 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 1em 0.25em #d9d9d9;
+}
+.start-anim:not(:disabled):hover {
+  background-color: #bbbbbb;
+  box-shadow: inset 0 0 1em 0.25em #888;
+}
+.start-anim:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+/*# sourceMappingURL=dice.css.map */

@@ -1,0 +1,147 @@
+html {
+    background-color: #222222;
+    font-family: 'Bebas Neue', sans-serif;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 4rem;
+    color: #eee;
+}
+.title::after {
+    content: 'x1';
+    font-size: 3rem;
+    padding-left: .75rem;
+    color: darken(#eee, 20%);
+}
+
+.dice-wrapper {
+    width: 120px;
+    height: 230px;
+    position: relative;
+}
+.dice-container {
+    transform-style: preserve-3d;
+    position: absolute;
+
+    transform: rotateX(-30deg) rotateY(50deg);
+    top: 100px;
+    left: 20px;
+    transform-origin: 2.5rem 2.5rem 0rem;
+}
+.dice {
+    transform-style: preserve-3d;
+    position: absolute;
+    transform-origin: 2.5rem 2.5rem 0rem;
+}
+
+
+$swidth: 5rem;
+
+.side {
+    background-color: #eeeeee;
+    box-shadow: inset 0 0 1em .25em #d9d9d9;
+    height: $swidth;
+    width: $swidth;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-areas: "one two three" "four five six" "seven eight nine";
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    align-items: center;
+    justify-items: center;
+    border-radius: .5rem;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    transition: background-color .2s ease;
+}
+.side-dark {
+    background-color: #d9d9d9;
+}
+.dot {
+    background-color: black;
+    border-radius: 50%;
+    height: .7499625rem;
+    width: .7499625rem;
+}
+
+$positions: (
+    (five)
+    (one nine)
+    (one five nine)
+    (one three seven nine)
+    (one three seven nine five)
+    (one three four six seven nine)
+);
+
+@for $i from 1 through length($positions) {
+    $side: nth($positions, $i);
+
+    @for $j from 1 through length($side) {
+        $pos: nth($side, $j);
+        .side-#{$i} .dot:nth-child(#{$j}) {
+            grid-area: $pos;
+        }
+    }
+}
+
+$displacements: (
+    (.5, 0, 0, 0deg, 90deg),
+    (0, -.5, 0, 90deg, 0deg),
+    (0, .5, 0, -90deg, 0deg),
+    (0, 0, -.5, 0deg, 180deg),
+    (-.5, 0, 0, 0deg, -90deg),
+    (0, 0, .5, 0deg, 0deg),
+);
+
+@for $i from 1 through length($displacements) {
+    $side: nth($displacements, $i);
+    .side-#{$i} {
+        transform: translate3d(nth($side, 1) * $swidth, nth($side, 2) * $swidth, nth($side, 3) * $swidth) rotateX(nth($side, 4)) rotateY(nth($side, 5));
+    }
+}
+
+.side-inner {
+    background-color: #d9d9d9;
+    height: $swidth;
+    width: $swidth;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &:nth-child(7) {
+        transform: rotateX(90deg);
+    }
+    &:nth-child(8) {
+        transform: rotateY(90deg);
+    }
+}
+
+.start-anim {
+    color: #111;
+    font-size: 1.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    border: none;
+    border-radius: .25rem;
+    background-color: #eee;
+    padding: .25rem 2rem;
+    cursor: pointer;
+    transition: all .2s ease;
+    box-shadow: inset 0 0 1em .25em #d9d9d9;
+    &:not(:disabled):hover {
+        background-color: darken(#eee, 20%);
+        box-shadow: inset 0 0 1em .25em #888;
+    }
+    &:disabled {
+        cursor: default;
+        opacity: .4;
+    }
+}
