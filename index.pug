@@ -1,10 +1,14 @@
 head
     link(rel="stylesheet", href="styles/dice.css")
-    link(href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap", rel="stylesheet")
+    link(href="styles/fonts.css", rel="stylesheet")
+    title 3D Dice animation by strukteon
+    meta(name="description" content="What does playing around with mojs and pug result in? That's right, a 3d dice animation!")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(charset="UTF-8")
+    meta(http-equiv="content-language" content="en")
 
 body 
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/mo-js/1.4.0/mo.umd.js" defer)
-    script(src="script.js" defer)
+    script(src="script.bundle.js" defer)
 
     h1.title Dice
 

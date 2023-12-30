@@ -1,3 +1,5 @@
+import mojs from '@mojs/core';
+
 const rotations = [
     [360, 180, 270],
     [360, 360, 360],
