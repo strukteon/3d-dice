@@ -18,4 +18,4 @@ jobs:
         url: "https://strukteon.github.io/3d-dice-animation/"
         threshold: 70
         strategy: mobile
-        key: ${{ secrets.APIKEY }}
+        key: ${{ secrets.PAGESPEED_APIKEY }}
