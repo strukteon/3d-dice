@@ -15,7 +15,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: psi
       with:
-        url: "https://jake.partus.ch"
+        url: "https://strukteon.github.io/3d-dice-animation/"
         threshold: 70
         strategy: mobile
         key: ${{ secrets.APIKEY }}
